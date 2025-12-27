@@ -33,3 +33,11 @@ if __name__ == '__main__':
     simulate_cpu_spike(duration=30, cpu_percent=80)
 
   ---------------------------------------------------------------------------------
+3. Set Alarm for =>50% threshold limit for CPU utilization and send mail notification to email address to inform about it so we can check and take correct action.
+    a.create alarm
+    b.Select Matrix
+    c.Add Limit and description
+    d.set mail for SNS.
+    e.run CPU_spike.py code to increase/decrease CPU usage on server
+    f.python3 cpu_spike.py - Run code
+
