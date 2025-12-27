@@ -1,0 +1,28 @@
+Description:
+
+We created a VPC designed for hosting servers in a production environment. 
+To enhance resiliency, the servers are deployed across two Availability Zones, using an Auto Scaling group to scale based on demand and an Application Load Balancer to evenly distribute traffic. 
+For added security, the servers are placed in private subnets and receive incoming requests only through the load balancer. 
+Outbound internet access is provided via a NAT gateway, which is deployed in both Availability Zones to ensure high availability and fault tolerance.
+Private subnet can be accessible via Bastion host to enhance security of private subnet app/instance.
+
+Steps:
+
+1. Create VPC (Ipv4 CICD block, AZ's =2, public subnet=2, private subnet=2, NAT gateway= 1 per AZ)
+2. Ec2 via autoscaling group(launch template)in private subnets.
+3. Create Bastion host in public subnet to connect Ec2 Instance.
+4. Install app in Ec2 instance.
+	a.Connect to Bastion from local terminal(MobaXterm): Securely copy .pem file to Bastion so we can connect to Private subnet Ec2 instance.
+		scp -i /drives/c/Users/ShubhamL/Downloads/awslogin.pem /drives/c/Users/ShubhamL/Downloads/awslogin.pem ubuntu@13.222.199.253:/home/ubuntu
+        b.Login to bastion:
+		ssh -i awslogin.pem ubuntu@13.222.199.253
+	c.Login to Ec2:
+		ssh -i awslogin.pem ubuntu@15.222.198.112
+	d.Create sample.html webpage 
+		vim index.html
+	e.Run python server
+		python3 -m http.server 8000
+5. Create Application Load balancer(Https: Layer7 of OSI): select VPC,AZ's,Public subnets, Security group, Inbound allow for custom : 8000 and HTTP :80 Listerns and routing port :80 default {create target group and select Ec2[app]}
+6. Access DNS name from internet.
+
+App(web page) is installed one EC2 only to see Target group option as Healthy and Unhealthy trafiic forward.
