@@ -1,0 +1,3 @@
+  a.CLI install from web
+	b.Install Python :apt install python, python --version
+	c.aws configure : access key and secret key to login
