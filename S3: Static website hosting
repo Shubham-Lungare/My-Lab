@@ -1,4 +1,4 @@
-a. Add sample HTMP page.  
+a. Create bucket> add sample HTMP page> Static website hosting.
 b. Enable public access.
 c. Bucket policy :
 
