@@ -1,7 +1,8 @@
 a. Create bucket> add sample HTMP page> Static website hosting.
 b. Enable public access.
 c. Bucket policy :
-
+Code-json
+--------------------------------------------
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -18,3 +19,4 @@ c. Bucket policy :
         }
     ]
 }
+---------------------------------------------------
