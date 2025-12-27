@@ -1,5 +1,6 @@
 Create S3 bucket and restrict access to owner from bucket policies: Help from AWS resource generator:
-
+code-json:
+------------------------------------------------------------
 {
   "Version": "2012-10-17",
   "Id": "RestrictBucketToIAMUsersOnly",
@@ -21,3 +22,4 @@ Create S3 bucket and restrict access to owner from bucket policies: Help from AW
     }
   ]
 }
+-------------------------------------------------------------------
