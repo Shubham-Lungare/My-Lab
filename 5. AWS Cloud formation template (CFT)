@@ -1,0 +1,18 @@
+AWS Cloud formation template (CFT) : Create S3 bucket and check Drift detection
+	a. Create S3 using infrastructure composer/Visual studio and AWS templates 
+	b. code  -yaml
+
+-----------------------------------------------------------------------------------------
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Create an S3 bucket with versioning enabled
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: my-versioned-bucket-name
+      VersioningConfiguration:
+        Status: Enabled
+	------------------------------------------------------------------------------------------
+	c. Create stack ,add template.
+	d. tried manual vesioning disable and checked Drift detection to see changes. 
