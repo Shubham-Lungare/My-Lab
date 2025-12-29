@@ -1,0 +1,5 @@
+AWS cloud front (CDN): Create static website demo.
+
+a.Create S3 bucket with Disable public access
+b.Upload object index.html and enable static website hosting.
+c.Under Coloudfront, create distribution(origintype as S3,distribution as per region) once deployment is done we get distribution domain name which points to S3 and access the website.
